@@ -1,47 +1,48 @@
 ---
-title: "Giovanni Battista Pergolesi"
+title: "Giovanni Pergolesi"
 born: 1710
 died: 1736
-country: "Italië"
-country_code: "IT"
-period: "Barok"
-duration_minutes: 33
-forces: "sopraan, mezzosopraan, strijkers, basso continuo"
+country: "Italy"
+period: "Baroque"
+duration_minutes: 41
+forces: "Soprano, alto, three violins, cello, organ"
 cds:
-  - title: "Pergolesi: Stabat Mater / Salve Regina"
-    label: "Deutsche Grammophon 415 103-2"
-    conductor: "Herbert von Karajan"
-    orchestra: "Berliner Philharmoniker"
-    soloists: "Edda Moser (sopraan), Trudeliese Schmidt (mezzosopraan)"
-    recorded: "Berlin, 1972"
-    notes: "Een van de meest bekende opnames. Karajan's karakteristieke, weelderige geluid."
-    code: "PER 01"
-  - title: "Pergolesi: Stabat Mater"
-    label: "Harmonia Mundi HMC 901571"
-    conductor: "Andreas Scholl"
+  - title: "Pergolesi - Stabat Mater – Salve Regina"
+    label: "L'Oiseau-Lyre 425 692-2"
+    conductor: "Christopher Hogwood"
     orchestra: "Academy of Ancient Music"
-    soloists: "Barbara Bonney (sopraan), Andreas Scholl (contratenor)"
-    recorded: "London, 1996"
-    notes: "Uitzonderlijk authentieke uitvoering op historische instrumenten."
+    soloists: "Emma Kirkby, soprano; James Bowman, countertenor"
+    recorded: "St Jude's Church, London, August 1988"
+    notes: "Another fine performance, with excellent soloists, though again the use of a full-bodied string orchestra is not exactly as Pergolesi prescribed. Some listeners find this interpretation too florid."
+    code: "PER 01"
+  - title: "Giovanni Pergolesi, Stabat Mater"
+    label: "STH Quality Records 19343"
+    conductor: "Pieter Jan Leusink"
+    orchestra: "Florilegium Musicum"
+    soloists: "Martinus Leusink, treble; Sytze Buwalda, countertenor"
+    recorded: "St. Joriskerk, Amersfoort, Netherlands, May 1993"
+    notes: "A historically leaner interpretation, close to the original scoring, without female singers and with accompaniment close to what Pergolesi wrote."
     code: "PER 02"
 ---
 
-## Over de componist
+## About the composer
 
-Giovanni Battista Pergolesi werd geboren op 4 januari 1710 in Jesi, in de Marche. Hij stierf slechts 26 jaar oud, op 16 maart 1736 in Pozzuoli, aan tuberculose. Ondanks zijn korte leven liet hij een indrukwekkend oeuvre na dat de muziekgeschiedenis diepgaand heeft beïnvloed.
+Giovanni Battista Pergolesi (1710–1736) was born in Jesi, Italy. His name became known thanks to his comic opera *La Serva Padrona*. He was slightly handicapped and had a weak constitution. He probably died of tuberculosis.
 
-Pergolesi studeerde aan het Conservatorio dei Poveri di Gesù Cristo in Napels. Hij verwierf al snel bekendheid met zijn opera buffa *La serva padrona* (1733), die later een centrale rol speelde in de zogenaamde *Querelle des Bouffons* in Parijs.
+A lot of confusion exists about which works Pergolesi did or did not compose. As his work came more and more in demand, some publishers tried to make a little extra by taking an anonymous composition and attaching the name of Pergolesi to it. However, about the *Stabat Mater* there is no doubt.
 
-## Over de Stabat Mater
+Probably the *Stabat Mater* in C minor was Pergolesi's last composition. The commission for this work was given by the same Order in Naples for which Alessandro Scarlatti had composed a *Stabat Mater* in 1723.
 
-De Stabat Mater is Pergolesi's laatste werk, gecomponeerd in 1736 op zijn sterfbed in het klooster van Pozzuoli. Het werk was bedoeld als vervanging van de Stabat Mater van Alessandro Scarlatti voor de wekelijkse vrijdagmiddagsservices in Napels.
+## About the Stabat Mater
 
-Het werk voor sopraan, mezzosopraan, strijkkwartet en basso continuo is een van de meest uitgevoerde en opgenomen Stabat Mater-composities aller tijden. De innige, lyrische melodieën en de expressieve harmoniën maken het tot een hoogtepunt van de barokke geestelijke muziek.
+**Date:** 1736  
+**Performers:** Soprano, alto, three violins, cello, organ  
+**Length:** about 41 minutes  
 
-**Datum:** 1736
-**Bezetting:** sopraan, mezzosopraan, strijkers, basso continuo
-**Duur:** ca. 33 minuten
+The work is divided into twelve sections, varying from one to five stanzas. Very moving melodies led some critics to think the work was too cheerful, but its expressive power helped make it one of the best known settings of the poem.
 
-### Bijzonderheden
+Interesting is the line *dum e-mi-sit*, which is sung intermittently as a musical picture of the last breaths of Jesus. This can also be found with some other composers.
 
-De populariteit van het werk was enorm: in de 18e eeuw werden meer dan honderd kopieën gemaakt. Bach bewerkte het tot de cantate *Tilge, Höchster, meine Sünden* (BWV 1083).
+## Information about the recording
+
+The original website contains an extensive discographic overview for Pergolesi with many more recordings and adaptations. This proof of concept includes two representative recording cards to demonstrate how the composer template works in Hugo.

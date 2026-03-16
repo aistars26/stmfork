@@ -1,21 +1,21 @@
 ---
-title: "Een unieke benadering van Pergolesi's Stabat Mater"
+title: "A Unique Approach to Pergolesi's Stabat Mater"
 date: 2025-04-13
-summary: "De historische Oude Kerk in Heemstede was het decor voor een bijzondere uitvoering van Pergolesi's beroemdste werk."
+summary: "The historic Oude Kerk in Heemstede was the perfect setting for Sunday's moving performance of Pergolesi's Stabat Mater."
 ---
 
-De historische Oude Kerk in Heemstede was het decor voor een bijzondere uitvoering van Pergolesi's Stabat Mater. De uitvoerenden kozen voor een ongebruikelijke bezetting en benadering die het publiek verraste.
+The historic Oude Kerk in Heemstede was the perfect setting for Sunday's moving performance of Pergolesi's *Stabat Mater*. The performers chose an intimate and distinctive approach that gave fresh life to one of the best-known settings of the poem.
 
-Pergolesi's Stabat Mater (1736) is een van de meest uitgevoerde Stabat Mater-composities ter wereld. Componist als stervende jongeman van 26 jaar op zijn ziekbed in Pozzuoli, ademt het werk een innige overgave die na bijna drie eeuwen nog steeds ontroert.
+Pergolesi's *Stabat Mater* (1736) remains one of the most often performed and recorded settings in the entire tradition. Written near the end of the composer's short life, it still speaks with unusual tenderness and directness.
 
-## De uitvoering
+## The performance
 
-Wat deze uitvoering bijzonder maakte was de keuze voor een kleine, intieme bezetting: slechts twee solisten en een ensemble van vier strijkers en cembalo. Geen groot orkest, geen koor — puur de kern van wat Pergolesi bedoeld had.
+What made this performance special was the choice of a small, intimate line-up: two soloists with a compact accompaniment rather than a large-scale orchestral interpretation. In the acoustic of the Oude Kerk, that approach worked especially well.
 
-De akoestiek van de Oude Kerk, gebouwd in de 15e eeuw, gaf het werk een extra dimensie. De nagalm versterkte de meditieve kwaliteit van de muziek zonder de tekst onverstaanbaar te maken.
+The result was a performance that highlighted the vulnerability and lyrical beauty of the work, while preserving the meditative character that makes Pergolesi's setting so enduring.
 
-## Waarom dit werk blijft boeien
+## Why this work still matters
 
-Na bijna 300 jaar blijft Pergolesi's Stabat Mater verrassend vers klinken. De melodieuze sopraan-lijnen, de diepe harmonieen en de directe emotionele expressie spreken generaties luisteraars aan. Op onze website vind je meer dan 300 andere Stabat Mater-composities — elk met hun eigen karakter en tijdsgeest.
+Nearly three centuries later, Pergolesi's *Stabat Mater* still sounds remarkably immediate. Its melodic clarity and emotional concentration continue to attract performers and audiences alike.
 
-Wil je meer lezen over Pergolesi? Bekijk zijn [componistenpagina](/composers/giovanni-battista-pergolesi/).
+Would you like to explore more? See the [composer page for Giovanni Pergolesi](/composers/giovanni-battista-pergolesi/).

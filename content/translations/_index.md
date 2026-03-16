@@ -1,13 +1,43 @@
 ---
-title: "Translations"
-description: "The Stabat Mater poem in multiple languages."
+title: "Stabat Mater translations in 33 languages"
+description: "Stabat Mater poem - different translations and languages"
 ---
 
-The *Stabat Mater Dolorosa* was written for prayer and contemplation, but has also travelled widely through translation and musical adaptation.
+Originally the *Stabat Mater* is meant for private reading or praying. It belongs to a group of passion plays called *Marienklagen* (Maria laments), which were very popular in medieval times in Germany and Italy.
 
-This proof of concept includes a small sample of the translations section:
+Thanks to many interested and engaged visitors from all over the world, the website now contains translations of the original Latin *Stabat Mater* text in many languages.
 
-- [Latin text](/texts/latin-text/)
-- [English translation](/translations/english/)
-
-In a fuller migration, this section could grow into a complete language archive with one page per translation.
+- [The original Latin text](/texts/latin-text/)
+- [English](/translations/english/)
+- Afrikaans
+- Basque
+- Breton
+- Catalan
+- Croatian
+- Czech
+- Danish
+- Dutch
+- Finnish
+- French
+- Frisian
+- German
+- Hebrew
+- Hungarian
+- Irish Gaelic
+- Italian
+- Konkani
+- Lithuanian
+- Maltese
+- New High German
+- Norwegian
+- Polish
+- Portuguese
+- Romanian
+- Russian
+- Scottish Gaelic
+- Slovenian
+- Slovakian
+- Spanish
+- Swedish
+- Ukrainian
+- Welsh
