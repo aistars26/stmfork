@@ -4,3 +4,8 @@ description: "Search for Stabat Mater composers in the collection of – now –
 ---
 
 Search for Stabat Mater composers in the collection of – now – 300 CDs. You’ll find information about the composer, the Stabat Mater, the CD-recordings, and performers (conductor, orchestra, soloists, choir). The colour bar is a graphic representation of the composition. Read more about [the colour bar](https://stabatmater.info/stabat-mater-colourbar/).
+
+[Alphabetically](https://stabatmater.info/composer/alphabetically/)
+[By country of origin](https://stabatmater.info/composer/countries-of-origin/)
+[Chronologically](https://stabatmater.info/composer/chronologically/)
+[By duration](https://stabatmater.info/composer/duration/)
