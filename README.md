@@ -34,7 +34,9 @@ This POC should prove that the original site can be represented in Hugo with:
 
 ## Key migration principle
 
-If content from the live site is migrated into this repository, it should match the original page **literally as far as practical**.
+This repository is a migration proof of concept, not a content rewrite.
+
+If a page from the live site is migrated into this repository, its content should remain **identical to the source page**.
 
 That means:
 
@@ -43,7 +45,7 @@ That means:
 - do **not** regenerate migrated page copy with an LLM
 - do **not** replace missing source text with invented filler
 
-If a page is not yet faithfully migrated, treat it as incomplete.
+If a page differs materially from the original, it should be treated as **not yet migrated**.
 
 ## Desired maintenance model
 
