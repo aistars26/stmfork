@@ -16,6 +16,27 @@ title = "The Ultimate Stabat Mater Website"
     name = "Composers"
     url = "/composers/"
     weight = 1
+    identifier = "composers"
+  [[menu.main]]
+    name = "Alphabetically"
+    url = "/composers/"
+    weight = 1
+    parent = "composers"
+  [[menu.main]]
+    name = "By country of origin"
+    url = "/countries/"
+    weight = 2
+    parent = "composers"
+  [[menu.main]]
+    name = "Chronologically"
+    url = "/periods/"
+    weight = 3
+    parent = "composers"
+  [[menu.main]]
+    name = "By duration"
+    url = "/composers/"
+    weight = 4
+    parent = "composers"
   [[menu.main]]
     name = "Texts"
     url = "/texts/"
@@ -29,10 +50,18 @@ title = "The Ultimate Stabat Mater Website"
     url = "/blog/"
     weight = 4
   [[menu.main]]
+    name = "Missing CDs"
+    url = "/contact/"
+    weight = 5
+  [[menu.main]]
     name = "About"
     url = "/about/"
-    weight = 5
+    weight = 6
+  [[menu.main]]
+    name = "Donate?"
+    url = "/contact/"
+    weight = 7
   [[menu.main]]
     name = "Contact"
     url = "/contact/"
-    weight = 6
+    weight = 8

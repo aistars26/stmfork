@@ -106,6 +106,9 @@ nav.main-nav ul {
   margin: 0 auto;
   padding: 0 1rem;
 }
+nav.main-nav > ul > li {
+  position: relative;
+}
 nav.main-nav li a {
   display: block;
   padding: 0.7rem 1.1rem;
@@ -123,6 +126,32 @@ nav.main-nav li a:hover,
 nav.main-nav li a.active {
   border-bottom-color: rgba(255,255,255,0.6);
   background: rgba(0,0,0,0.1);
+}
+nav.main-nav .sub-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  min-width: 260px;
+  background: #3a7a5b;
+  padding: 0.3rem 0;
+  z-index: 20;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+}
+nav.main-nav .sub-menu li {
+  width: 100%;
+}
+nav.main-nav .sub-menu a {
+  padding: 0.65rem 0.9rem;
+  border-bottom: none;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+nav.main-nav li.has-children:hover > .sub-menu,
+nav.main-nav li.has-children:focus-within > .sub-menu {
+  display: block;
 }
 
 /* ── Layout ── */
