@@ -1,21 +1,28 @@
 ---
-title: "Over deze website"
+title: "About this website"
 menu:
   main:
     name: "About"
     weight: 5
 ---
 
-## De Stabat Mater Stichting
+## About this proof of concept
 
-The Ultimate Stabat Mater Website is een initiatief van Hans van der Velden, die in 1992 begon met het systematisch verzamelen van Stabat Mater-composities, uitvoeringen op cd en vertalingen van het originele Latijnse gedicht.
+This Hugo fork is a proof of concept for how the Stabat Mater website could be structured and deployed on GitHub Pages.
 
-Na het overlijden van Hans zetten wij zijn werk voort. De collectie telt inmiddels meer dan 330 composities en groeit nog steeds.
+It is meant to preserve the character of the original site while using a simpler static architecture built around reusable templates and Markdown content.
 
-## Doel
+## Goal
 
-De website brengt de religieuze, literaire en muzikale wereld van het Stabat Mater tot leven voor muziekliefhebbers, musici en componisten over de hele wereld.
+The aim is to demonstrate that the essential page types can work in a static setup:
 
-## Steun ons
+- home page
+- composer overview and composer detail pages
+- blog overview and blog detail pages
+- texts pages
+- translations pages
+- informational pages such as About and Contact
 
-De website is advertentievrij en wordt onderhouden door vrijwilligers. Overweeg een donatie als u ons werk waardeert.
+## Current scope
+
+This is not yet a full migration. The content is intentionally partial, but broad enough to show the technical and visual direction.

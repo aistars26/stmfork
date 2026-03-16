@@ -1,17 +1,12 @@
 <aside class="sidebar">
 
   <div class="sidebar-donate">
-    <a href="https://stabatmater.info/stabat-mater-collection-support/" target="_blank">
-      <img src="https://stabatmater.info/wp-content/uploads/2025/02/banner-met-tekst-nw-300x175.jpg" alt="Support our mission, please donate" style="width:100%; border-radius:4px; display:block;">
-    </a>
+    <img src="{{ "images/donate-banner.jpg" | relURL }}" alt="Support banner preview" style="width:100%; border-radius:4px; display:block;">
   </div>
 
   <div class="sidebar-widget">
-    <h3>Zoeken</h3>
-    <form action="/search/" method="get" class="search-box">
-      <input type="text" name="q" placeholder="Zoek op de site...">
-      <button type="submit">→</button>
-    </form>
+    <h3>Proof of concept</h3>
+    <p>This fork demonstrates how the original site could work as a Hugo site on GitHub Pages, without relying on the live production site.</p>
   </div>
 
   <div class="sidebar-widget">
@@ -27,11 +22,14 @@
   </div>
 
   <div class="sidebar-widget">
-    <h3>Componisten</h3>
+    <h3>Sections</h3>
     <ul style="list-style:none; padding:0; font-size:0.85rem;">
-      <li><a href="/composers/">Alfabetisch</a></li>
-      <li><a href="/composers/by-country/">Per land</a></li>
-      <li><a href="/composers/chronologically/">Chronologisch</a></li>
+      <li><a href="{{ "/composers/" | relURL }}">Composers</a></li>
+      <li><a href="{{ "/texts/" | relURL }}">Texts</a></li>
+      <li><a href="{{ "/translations/" | relURL }}">Translations</a></li>
+      <li><a href="{{ "/blog/" | relURL }}">Blog</a></li>
+      <li><a href="{{ "/about/" | relURL }}">About</a></li>
+      <li><a href="{{ "/contact/" | relURL }}">Contact</a></li>
     </ul>
   </div>
 

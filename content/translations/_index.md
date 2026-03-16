@@ -1,40 +1,13 @@
 ---
-title: "Vertalingen"
-description: "Het Stabat Mater-gedicht in 33 talen."
+title: "Translations"
+description: "The Stabat Mater poem in multiple languages."
 ---
 
-Het Stabat Mater Dolorosa is oorspronkelijk bedoeld voor privé-lezing of gebed. Dankzij de inzet van betrokken bezoekers van over de hele wereld hebben we nu 33 vertalingen van het originele Latijnse gedicht, van het Afrikaans tot het Welsh.
+The *Stabat Mater Dolorosa* was written for prayer and contemplation, but has also travelled widely through translation and musical adaptation.
 
-- [De originele Latijnse tekst](/texts/)
-- Afrikaans
-- Baskisch
-- Catalaans
-- Chinees
-- Duits
-- Engels
-- Esperanto
-- Fins
-- Frans
-- Fries
-- Grieks
-- Hebreeuws
-- Hongaars
-- Iers
-- Italiaans
-- Japans
-- Kroatisch
-- Latijn (origineel)
-- Lets
-- Nederlands
-- Noors
-- Pools
-- Portugees
-- Roemeens
-- Russisch
-- Sloveens
-- Slowaaks
-- Spaans
-- Tsjechisch
-- Turks
-- Zweeds
-- Welsh
+This proof of concept includes a small sample of the translations section:
+
+- [Latin text](/texts/latin-text/)
+- [English translation](/translations/english/)
+
+In a fuller migration, this section could grow into a complete language archive with one page per translation.

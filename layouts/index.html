@@ -1,11 +1,13 @@
 {{ define "main" }}
 <div class="home-intro">
-  <h1>Explore the Timeless Legacy of the Stabat Mater</h1>
+  <h1>Search the Ultimate Stabat Mater Website</h1>
   <p>
-    On the Ultimate Stabat Mater Website you will find the CD-collection of more than 330 different
-    Stabat Mater compositions. Search for composers: alphabetically, chronologically, by country of
-    origin and by duration. Listen to the compositions and watch the videos of special performances.
-    The site also includes translations of the original Latin poem in 33 different languages.
+    This proof of concept shows how the Stabat Mater website could run as a static Hugo site on GitHub Pages.
+    It includes representative content types for composers, texts, translations, blog posts and informational pages.
+  </p>
+  <p>
+    The goal is not a full migration yet, but a functional demonstration that the structure, navigation and visual style
+    can work without depending on the production WordPress site.
   </p>
 </div>
 
@@ -18,24 +20,29 @@
   </iframe>
 </div>
 
-<h2>Recente blogposts</h2>
+<h2>Explore the content types</h2>
 <div class="blog-grid">
-  {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
   <div class="blog-card">
-    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-    <div class="date">{{ .Date.Format "2 January 2006" }}</div>
-    <p>{{ .Summary }}</p>
+    <h2><a href="{{ "/composers/" | relURL }}">Composers</a></h2>
+    <p>Alphabetical list with composer detail pages and recording metadata.</p>
   </div>
-  {{ end }}
+  <div class="blog-card">
+    <h2><a href="{{ "/texts/" | relURL }}">Texts</a></h2>
+    <p>Static explanatory pages about the poem and its liturgical or literary context.</p>
+  </div>
+  <div class="blog-card">
+    <h2><a href="{{ "/translations/" | relURL }}">Translations</a></h2>
+    <p>Translation landing pages plus individual language pages.</p>
+  </div>
+  <div class="blog-card">
+    <h2><a href="{{ "/blog/" | relURL }}">Blog</a></h2>
+    <p>News and editorial posts in a classic archive + single-post layout.</p>
+  </div>
 </div>
 
-<h2 style="margin-top:2rem;">Over deze website</h2>
+<h2 style="margin-top:2rem;">Why this POC exists</h2>
 <p>
-  Initiator Hans van der Velden begon in 1992 zijn muzikale ontdekkingstocht met de Stabat Mater van Haydn.
-  Hij zocht systematisch naar componisten, uitvoeringen op cd en vertalingen van het originele Latijnse gedicht.
-  Wij zijn trots zijn werk voort te zetten.
-</p>
-<p>
-  Geïnteresseerd? Schrijf je in voor de <a href="#">nieuwsbrief</a> of lees het <a href="/blog/">blog</a>.
+  The original Stabat Mater website has a rich visual identity and many page types. This Hugo fork is meant to show that
+  the same basic experience can be reproduced on GitHub Pages with static content, reusable layouts and a simpler deployment flow.
 </p>
 {{ end }}

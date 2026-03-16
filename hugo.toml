@@ -1,11 +1,11 @@
-baseURL = "https://mrnspam.github.io/stm/"
+baseURL = "https://aistars26.github.io/stmfork/"
 languageCode = "en-us"
 title = "The Ultimate Stabat Mater Website"
 
 [params]
   subtitle = "a musical journey through the ages"
-  description = "The Ultimate Stabat Mater Website — over 330 compositions, composers, texts and translations."
-  noindex = true  # TEST site — not for search engines
+  description = "Proof of concept for a Hugo/GitHub Pages version of the Stabat Mater website."
+  noindex = true
 
 [taxonomies]
   country = "countries"
