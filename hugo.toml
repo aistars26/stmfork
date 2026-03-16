@@ -34,7 +34,7 @@ title = "The Ultimate Stabat Mater Website"
     parent = "composers"
   [[menu.main]]
     name = "By duration"
-    url = "/composers/"
+    url = "/composers/by-duration/"
     weight = 4
     parent = "composers"
   [[menu.main]]

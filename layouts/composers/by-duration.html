@@ -1,0 +1,8 @@
+{{ define "main" }}
+<h1>By duration</h1>
+<ul>
+  {{ range sort (where .Site.RegularPages "Section" "composers") ".Params.duration_minutes" }}
+  <li><a href="{{ .Permalink }}">{{ .Title }}</a>{{ with .Params.duration_minutes }} — {{ . }} minutes{{ end }}</li>
+  {{ end }}
+</ul>
+{{ end }}
