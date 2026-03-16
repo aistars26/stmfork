@@ -1,5 +1,5 @@
 ---
-title: "Texts"
+title: "Stabat Mater Dolorosa and Speciosa"
 ---
 
 <h2>Stabat Mater Dolorosa: the poem and the poet</h2>
@@ -18,7 +18,7 @@ title: "Texts"
 
 <p>The poem is made up of 20 stanzas of three lines (tristiches), respectively comprising eight, eight and seven syllables. Each pair of stanzas rhymes according to the scheme AAB CCB. The rhythm of all lines is trocheic. This is in accordance with common practice in medieval “rhyming sequences”, which originally were used as a mnemonic aid to help remember the prolonged coloratura on one syllable in Gregorian chant.</p>
 
-<p>For purposes of comparison I used a&nbsp;<a href="https://stabatmater.info/latin/">Latin text</a>&nbsp;with a documented origin. I made a literal translation (in&nbsp;<a href="https://stabatmater.info/dutch/">Dutch</a>) and I collected a large number of literal translations in&nbsp;<a href="https://stabatmater.info/stabat-mater-english-translation/">English</a>, as well as rhymed ones, and I present some translations in other languages that I found, or that people were so kind as to make for me.</p>
+<p>For purposes of comparison I used a&nbsp;<a href="/texts/latin-text/">Latin text</a>&nbsp;with a documented origin. I made a literal translation (in&nbsp;<a href="https://stabatmater.info/dutch/">Dutch</a>) and I collected a large number of literal translations in&nbsp;<a href="/translations/english/">English</a>, as well as rhymed ones, and I present some translations in other languages that I found, or that people were so kind as to make for me.</p>
 
 <h3>Different versions</h3>
 

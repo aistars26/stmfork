@@ -114,10 +114,10 @@ nav.main-nav li a {
   padding: 0.7rem 1.1rem;
   color: #fff;
   font-family: sans-serif;
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 500;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+  letter-spacing: 0;
+  text-transform: none;
   text-decoration: none;
   border-bottom: 3px solid transparent;
   transition: border-color 0.15s;
@@ -401,6 +401,45 @@ footer {
   margin-top: 3rem;
 }
 footer a { color: rgba(255,255,255,0.85); }
+
+.footer-widgets {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 3rem auto 0;
+  padding: 2rem 1.5rem;
+  background: #f3f6f3;
+  border-top: 1px solid var(--border);
+}
+.footer-widget h3 {
+  font-family: sans-serif;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: var(--green-dark);
+}
+.footer-widget p,
+.footer-widget label {
+  font-family: sans-serif;
+  font-size: 0.88rem;
+}
+.newsletter-form input {
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+@media (max-width: 900px) {
+  .footer-widgets {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .footer-widgets {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* ── Test banner ── */
 .test-banner {

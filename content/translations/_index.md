@@ -3,10 +3,10 @@ title: "Stabat Mater translations in 33 languages"
 description: "Stabat Mater poem - different translations and languages"
 ---
 
-Originally the Stabat Mater is meant for private reading or praying. It belongs to a group of passion plays called *Marienklagen* (Maria laments), that were very popular in medieval times in Germany and Italy. [More about the origin of the Stabat Mater poem](https://stabatmater.info/stabat-mater/texts-translations-stabat-mater-dolorosa/).  
+Originally the Stabat Mater is meant for private reading or praying. It belongs to a group of passion plays called *Marienklagen* (Maria laments), that were very popular in medieval times in Germany and Italy. [More about the origin of the Stabat Mater poem](/texts/about-the-poem/).  
 Thanks to many interested and engaged visitors from all over the world, we now have 33 translations of the original Latin Stabat Mater text, from Afrikaans to Welsh.
 
-- [The original Latin text](https://stabatmater.info/stabat-mater-latin-text/)
+- [The original Latin text](/texts/latin-text/)
 - [Afrikaans](https://stabatmater.info/stabat-mater-african-translation/)
 - [Basque](https://stabatmater.info/stabat-mater-basque-translation/)
 - [Breton](https://stabatmater.info/stabat-mater-breton-translation/)
@@ -15,7 +15,7 @@ Thanks to many interested and engaged visitors from all over the world, we now h
 - [Czech](https://stabatmater.info/stabat-mater-czech-translation/)
 - [Danish](https://stabatmater.info/stabat-mater-danish-translation/)
 - [Dutch](https://stabatmater.info/stabat-mater-dutch-translation/)
-- [English](https://stabatmater.info/stabat-mater-english-translation/)
+- [English](/translations/english/)
 - [Finnish](https://stabatmater.info/stabat-mater-finnish-translation/)
 - [French](https://stabatmater.info/stabat-mater-french-translation/)
 - [Frisian](https://stabatmater.info/stabat-mater-frisian-translation/)

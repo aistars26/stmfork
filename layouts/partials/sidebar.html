@@ -1,11 +1,19 @@
 <aside class="sidebar">
 
   <div class="sidebar-donate">
-    <img src="{{ "images/donate-banner.jpg" | relURL }}" alt="Support banner preview" style="width:100%; border-radius:4px; display:block;">
+    <a href="https://stabatmater.info/stabat-mater-collection-support/"><img src="{{ "images/donate-banner.jpg" | relURL }}" alt="Support banner preview" style="width:100%; border-radius:4px; display:block;"></a>
   </div>
 
   <div class="sidebar-widget">
-    <h3>Recent blog posts</h3>
+    <h3>Search this website</h3>
+    <form class="search-box" action="#" method="get">
+      <input type="search" name="q" placeholder="Search this website">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+
+  <div class="sidebar-widget">
+    <h3>Recent posts</h3>
     <ul style="list-style:none; padding:0;">
       {{ range first 5 (where .Site.RegularPages "Section" "blog") }}
       <li style="margin-bottom:0.5rem; font-size:0.85rem;">
@@ -17,14 +25,19 @@
   </div>
 
   <div class="sidebar-widget">
-    <h3>Sections</h3>
+    <h3>Foundation</h3>
+    <p>The Ultimate Stabat Mater Website Foundation aims, with its unique collection and expertise, to be of assistance to composers, musicians, and music lovers anywhere in the world.</p>
+    <p>Established in Heemstede, the Netherlands</p>
+    <p>RSIN: 8613.41.661.B01&nbsp;&nbsp;&nbsp;CCI 78311292</p>
+  </div>
+
+  <div class="sidebar-widget">
+    <h3>Stabat Mater composers</h3>
     <ul style="list-style:none; padding:0; font-size:0.85rem;">
-      <li><a href="{{ "composers/" | absURL }}">Composers</a></li>
-      <li><a href="{{ "texts/" | absURL }}">Texts</a></li>
-      <li><a href="{{ "translations/" | absURL }}">Translations</a></li>
-      <li><a href="{{ "blog/" | absURL }}">Blog</a></li>
-      <li><a href="{{ "about/" | absURL }}">About</a></li>
-      <li><a href="{{ "contact/" | absURL }}">Contact</a></li>
+      <li><a href="{{ "composers/" | absURL }}">Alphabetically</a></li>
+      <li><a href="{{ "countries/" | absURL }}">By countries of origin</a></li>
+      <li><a href="{{ "periods/" | absURL }}">Chronologically</a></li>
+      <li><a href="{{ "composers/by-duration/" | absURL }}">By duration</a></li>
     </ul>
   </div>
 

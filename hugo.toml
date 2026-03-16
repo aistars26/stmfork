@@ -18,6 +18,10 @@ title = "The Ultimate Stabat Mater Website"
 
 [menu]
   [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 0
+  [[menu.main]]
     name = "Composers"
     url = "/composers/"
     weight = 1
