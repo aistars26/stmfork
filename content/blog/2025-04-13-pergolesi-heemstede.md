@@ -18,4 +18,4 @@ The result was a performance that highlighted the vulnerability and lyrical beau
 
 Nearly three centuries later, Pergolesi's *Stabat Mater* still sounds remarkably immediate. Its melodic clarity and emotional concentration continue to attract performers and audiences alike.
 
-Would you like to explore more? See the [composer page for Giovanni Pergolesi](/composers/giovanni-battista-pergolesi/).
+Would you like to explore more? See the [composer page for Giovanni Pergolesi]({{< relref "/composers/giovanni-battista-pergolesi.md" >}}).

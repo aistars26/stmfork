@@ -7,8 +7,8 @@ Originally the *Stabat Mater* is meant for private reading or praying. It belong
 
 Thanks to many interested and engaged visitors from all over the world, the website now contains translations of the original Latin *Stabat Mater* text in many languages.
 
-- [The original Latin text](/texts/latin-text/)
-- [English](/translations/english/)
+- [The original Latin text]({{< relref "/texts/latin-text.md" >}})
+- [English]({{< relref "/translations/english.md" >}})
 - Afrikaans
 - Basque
 - Breton
