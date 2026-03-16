@@ -1,131 +1,113 @@
 # stmfork
 
-Proof of concept for migrating the Stabat Mater website to **Hugo + GitHub Pages**.
+Proof of concept for migrating the live website **https://stabatmater.info/** to **Hugo + GitHub Pages**.
 
-This repo is not meant to be a loose reinterpretation of the live site. The goal is to prove that the current WordPress site can be represented faithfully in a static Hugo + GitHub Pages setup.
+The goal of this repository is to show how the original Stabat Mater website could run as a static site on GitHub Pages while preserving:
 
-## What this project is trying to prove
+- the structure of the site
+- the visual feel of the site
+- the existing page types
+- the content of migrated pages
+- maintainability, so that one source item does not need to be edited in multiple places
 
-- the main page types can exist as static Hugo content
-- navigation can work on a GitHub Pages project site
-- derived pages can be generated from source content instead of being maintained manually in multiple places
-- migrated pages can match the live source site **literally**, not just approximately
+## Original website
 
-## Non-negotiable content rule
+Source website:
 
-For pages that are considered "migrated" in this proof of concept:
+- **https://stabatmater.info/**
 
-- **Do not paraphrase** source text
-- **Do not summarize** source text
-- **Do not regenerate** source text with an LLM
-- **Do not invent marketing copy** to fill gaps
+This repository is a migration proof of concept for that site, not a redesign and not a reinterpretation.
 
-If content is taken over from the live site, it should be copied **literally** as far as practical.
-If a page is not yet faithfully migrated, treat it as incomplete rather than "good enough".
+## What this project should demonstrate
 
-## Current state
+This POC should prove that the original site can be represented in Hugo with:
 
-The repo already contains working Hugo page types for:
-
-- home page
-- composers overview
-- composer detail page(s)
-- blog overview
-- blog post page
-- texts overview and detail page(s)
-- translations overview and detail page(s)
-- about page
-- contact page
-- taxonomy-style pages such as countries / periods
-- a duration-based composers view
-
-GitHub Pages is configured and deploys from `main`.
-
-## Important warning for the next session
-
-This repo has already gone through several partial fidelity passes. Some structure, navigation, dropdowns, taxonomy pages, local asset copies, and GitHub Pages path fixes are in place.
-
-However, **do not assume the migrated pages are yet fully source-identical**.
-
-There were earlier mistakes where content was paraphrased or rewritten instead of being copied literally. Future work should therefore start from verification, not trust.
-
-## Required workflow for future fidelity work
-
-When continuing this migration, use this process:
-
-1. Pick a page that currently exists in the POC
-2. Fetch/open the corresponding live page from `stabatmater.info`
-3. Compare the source page and the POC page **literally**
-4. Fix the POC page until the migrated content matches
-5. Verify the rendered result in the browser
-6. Perform a second verification path (for example raw HTML/text comparison)
-7. Only then mark that page as done
-
-Do this **page by page**.
-
-## Pages / areas explicitly known to need verification
-
-Even if they look close, they must still be treated as suspect until checked literally:
-
-- home page
-- about page
-- contact page
-- texts pages, especially the Latin text page
+- a working homepage
+- composer overview pages
+- composer detail pages with recording data and tables
+- texts pages
 - translations pages
-- blog overview / blog detail
-- composer pages, including large recording sections and tables
-- taxonomy / derived list pages
-- navigation chrome / footer / sidebar blocks
+- blog overview and blog post pages
+- about / contact pages
+- navigation with dropdown behavior
+- derived listing pages such as country / period / duration views
 
-## Maintenance model target
+## Key migration principle
 
-A key goal of this repo is that adding one content item should update all relevant derived pages automatically.
+If content from the live site is migrated into this repository, it should match the original page **literally as far as practical**.
+
+That means:
+
+- do **not** paraphrase migrated text
+- do **not** summarize migrated text
+- do **not** regenerate migrated page copy with an LLM
+- do **not** replace missing source text with invented filler
+
+If a page is not yet faithfully migrated, treat it as incomplete.
+
+## Desired maintenance model
+
+A major reason for doing this POC is maintainability.
+
+The site should be structured so that adding or editing one source item automatically updates the derived views that depend on it.
 
 Examples:
 
-- adding a composer should automatically affect:
-  - composer detail
-  - composers overview
-  - country listing
-  - period listing
-  - duration listing
-- adding a blog post should automatically affect:
-  - blog detail
-  - blog overview
-  - recent posts widgets
+- adding a composer should automatically update:
+  - the composer detail page
+  - the composers overview
+  - country listings
+  - period listings
+  - duration-based listings
+- adding a blog post should automatically update:
+  - the post page
+  - the blog overview
+  - recent-post lists
 
-If something still requires manual duplication across multiple pages, treat that as incomplete design.
+The goal is to avoid editing the same information manually in multiple places.
 
-## Internal links / GitHub Pages constraint
+## GitHub Pages target
 
-This repo is published as a **GitHub Pages project site** under:
+This repository is published as a GitHub Pages **project site** under:
 
-- `https://aistars26.github.io/stmfork/`
+- **https://aistars26.github.io/stmfork/**
 
-So internal links must be safe for a project-site base path.
-Avoid root-relative links that escape `/stmfork/`.
+So internal links, assets, and navigation must work correctly under the `/stmfork/` base path.
 
-## Run locally
+## Current scope of the POC
 
-If Hugo is available locally:
+This repository already contains examples of:
+
+- home page
+- composers overview
+- composer detail pages
+- texts overview and detail pages
+- translations overview and detail pages
+- blog overview and blog post page
+- about page
+- contact page
+- taxonomy / derived pages
+- GitHub Pages deployment via GitHub Actions
+
+## Workflow for future fidelity work
+
+When continuing the migration work:
+
+1. choose a page that already exists in the POC
+2. compare it against the corresponding page on **https://stabatmater.info/**
+3. correct the POC until the migrated content and structure match
+4. verify in the browser
+5. verify a second way (for example via raw HTML/text comparison)
+6. only then consider that page done
+
+## Local development
+
+If Hugo is installed:
 
 ```bash
 hugo server
 ```
 
-If Hugo is not installed on the machine, install or download a local binary before doing render verification.
-
 ## Deploy
 
 A push to `main` triggers GitHub Actions to build and publish the site to GitHub Pages.
-
-## Practical expectation for the next session
-
-Do not report "done" unless the currently migrated pages have been:
-
-- checked one by one
-- compared literally with the live source
-- browser-verified
-- verified a second way
-
-If there is any doubt, say it is **not done yet**.
