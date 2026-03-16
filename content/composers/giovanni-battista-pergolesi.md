@@ -11,8 +11,8 @@ particulars: "The work is divided into twelve sections, varying from one to five
 textual_variations:
   - "Stanza 16, line 2: not 'Passionis eius sortem' but 'Passionis fac consortem'."
 colorbars:
-  - "/images/pergolesi1.gif"
-  - "/images/pergolesi2.gif"
+  - "images/pergolesi1.gif"
+  - "images/pergolesi2.gif"
 cds:
   - code: "1994 ROS 02"
     heading: "CD1: Decca 421 645-2: Rossini, Petite Messe Solenelle"
