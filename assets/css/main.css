@@ -298,11 +298,18 @@ main li { margin-bottom: 0.3rem; }
   color: var(--green-dark);
   margin: 1.2rem 0 0.4rem;
 }
+.colorbar-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 .colorbar {
   display: block;
-  max-width: 100%;
-  margin-bottom: 0.4rem;
+  width: 100%;
+  max-width: 640px;
+  margin-bottom: 0;
   border: 1px solid var(--border);
+  background: #fff;
 }
 code {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;

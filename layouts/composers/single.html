@@ -2,7 +2,6 @@
 <article>
   <h1>{{ .Title }}</h1>
 
-  <h2>About the composer</h2>
   {{ .Content }}
 
   <h2>About the Stabat Mater</h2>
@@ -13,7 +12,7 @@
       {{ with .Params.length }}<tr><th>Length</th><td>{{ . }}</td></tr>{{ end }}
       {{ with .Params.particulars }}<tr><th>Particulars</th><td>{{ . }}</td></tr>{{ end }}
       {{ with .Params.textual_variations }}<tr><th>Textual variations</th><td><ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul></td></tr>{{ end }}
-      {{ with .Params.colorbars }}<tr><th>Colour bar</th><td>{{ range . }}<img class="colorbar" src="{{ . | relURL }}" alt="Colour bar">{{ end }}</td></tr>{{ end }}
+      {{ with .Params.colorbars }}<tr><th>Colour bar</th><td><div class="colorbar-stack">{{ range . }}<img class="colorbar" src="{{ . | relURL }}" alt="Colour bar">{{ end }}</div></td></tr>{{ end }}
     </tbody>
   </table>
 
