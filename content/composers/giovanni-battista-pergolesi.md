@@ -1,5 +1,5 @@
 ---
-title: "Giovanni Pergolesi"
+title: "Pergolesi, Giovanni"
 born: 1710
 died: 1736
 country: "Italy"

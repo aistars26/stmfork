@@ -2,9 +2,14 @@ baseURL = "https://aistars26.github.io/stmfork/"
 languageCode = "en-us"
 title = "The Ultimate Stabat Mater Website"
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [params]
   subtitle = "a musical journey through the ages"
-  description = "Proof of concept for a Hugo/GitHub Pages version of the Stabat Mater website."
+  description = "The Ultimate Stabat Mater Website"
   noindex = true
 
 [taxonomies]

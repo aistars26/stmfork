@@ -5,11 +5,6 @@
   </div>
 
   <div class="sidebar-widget">
-    <h3>Proof of concept</h3>
-    <p>This fork demonstrates how the original site could work as a Hugo site on GitHub Pages, without relying on the live production site.</p>
-  </div>
-
-  <div class="sidebar-widget">
     <h3>Recent blog posts</h3>
     <ul style="list-style:none; padding:0;">
       {{ range first 5 (where .Site.RegularPages "Section" "blog") }}

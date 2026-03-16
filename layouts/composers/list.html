@@ -1,6 +1,6 @@
 {{ define "main" }}
-<h1>Composers</h1>
-<p>Search the collection of {{ len .Pages }} Stabat Mater composers.</p>
+<h1>{{ .Title }}</h1>
+{{ .Content }}
 
 <div class="filter-bar" id="filter-bar">
   <button class="filter-btn active" data-filter="all">All</button>

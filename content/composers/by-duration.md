@@ -1,6 +1,6 @@
 ---
-title: "By duration"
+title: "Stabat Mater by duration"
 layout: "by-duration"
 ---
 
-Composers ordered by the approximate duration of their Stabat Mater setting.
+In this list I have arranged the Stabat Mater compositions in my collection in order of duration. Anonymus compositions have been left out. Of course, the duration of a composition is not a fixed number, but, within limits, is determined by the interpretation of the director or the interpreters. Nevertheless, these interpretations can differ quite a lot. For instance, the two recordings I possess of the Stabat Mater of Domenico Scarlatti take 26.44 and 32.06 minutes respectively! In those cases where I possess more CD's of one composition I have taken the mean of the durations. Pergolesi has been left out because I now (2017) have 18 CD's of this composition.

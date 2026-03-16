@@ -1,41 +1,4 @@
 {{ define "main" }}
-<div class="home-intro">
-  <h1>Search the Ultimate Stabat Mater Website</h1>
-  <p>
-    On the Ultimate Stabat Mater Website you will find the CD-collection of more than 300 different
-    Stabat Mater compositions. Search for composers: alphabetically, chronologically, by country of
-    origin and by duration. Listen to the compositions and watch videos of special performances.
-    The site also includes translations of the original Latin poem in many languages.
-  </p>
-</div>
-
-<div class="home-video">
-  <iframe
-    src="https://www.youtube.com/embed/2FApgFMDNEU"
-    title="Stabat Mater Dolorosa — A Journey through Seven Centuries of Music"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen>
-  </iframe>
-</div>
-
-<h2>Recent blog posts</h2>
-<div class="blog-grid">
-  {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
-  <div class="blog-card">
-    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-    <div class="date">{{ .Date.Format "2 January 2006" }}</div>
-    <p>{{ .Summary }}</p>
-  </div>
-  {{ end }}
-</div>
-
-<h2 style="margin-top:2rem;">Why this Stabat Mater website?</h2>
-<p>
-  Initiator Hans van der Velden began this journey of musical discovery in 1992 with Haydn's Stabat Mater.
-  He searched systematically for composers, performances on CD and translations of the original Latin poem.
-  We are proud to continue his work.
-</p>
-<p>
-  Interested? Read the <a href="{{ "/blog/" | relURL }}">blog</a> or explore the different sections of this proof of concept.
-</p>
+<h1>{{ .Title }}</h1>
+{{ .Content }}
 {{ end }}
