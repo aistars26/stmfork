@@ -2,30 +2,38 @@
 <article>
   <h1>{{ .Title }}</h1>
 
-  <div class="composer-meta">
-    {{ with .Params.born }}<div><span>Born: </span><strong>{{ . }}</strong></div>{{ end }}
-    {{ with .Params.died }}<div><span>Died: </span><strong>{{ . }}</strong></div>{{ end }}
-    {{ with .Params.country }}<div><span>Country: </span><strong>{{ . }}</strong></div>{{ end }}
-    {{ with .Params.period }}<div><span>Period: </span><strong>{{ . }}</strong></div>{{ end }}
-    {{ with .Params.duration_minutes }}<div><span>Length: </span><strong>{{ . }} minutes</strong></div>{{ end }}
-    {{ with .Params.forces }}<div><span>Performers: </span><strong>{{ . }}</strong></div>{{ end }}
-  </div>
-
+  <h2>About the composer</h2>
   {{ .Content }}
+
+  <h2>About the Stabat Mater</h2>
+  <table class="info-table">
+    <tbody>
+      {{ with .Params.date_composed }}<tr><th>Date</th><td>{{ . }}</td></tr>{{ end }}
+      {{ with .Params.performers }}<tr><th>Performers</th><td>{{ . }}</td></tr>{{ end }}
+      {{ with .Params.length }}<tr><th>Length</th><td>{{ . }}</td></tr>{{ end }}
+      {{ with .Params.particulars }}<tr><th>Particulars</th><td>{{ . }}</td></tr>{{ end }}
+      {{ with .Params.textual_variations }}<tr><th>Textual variations</th><td><ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul></td></tr>{{ end }}
+      {{ with .Params.colorbars }}<tr><th>Colour bar</th><td>{{ range . }}<img class="colorbar" src="{{ . | relURL }}" alt="Colour bar">{{ end }}</td></tr>{{ end }}
+    </tbody>
+  </table>
 
   {{ with .Params.cds }}
   <h2>Information about the recording</h2>
   {{ range . }}
-  <div class="cd-card">
-    <h3>{{ .title }}</h3>
-    {{ with .label }}<p><strong>Label:</strong> {{ . }}</p>{{ end }}
-    {{ with .conductor }}<p><strong>Conductor:</strong> {{ . }}</p>{{ end }}
-    {{ with .orchestra }}<p><strong>Orchestra:</strong> {{ . }}</p>{{ end }}
-    {{ with .soloists }}<p><strong>Soloists:</strong> {{ . }}</p>{{ end }}
-    {{ with .recorded }}<p><strong>Recorded:</strong> {{ . }}</p>{{ end }}
-    {{ with .notes }}<p><strong>More info:</strong> {{ . }}</p>{{ end }}
-    {{ with .code }}<p class="cd-code">Code: {{ . }}</p>{{ end }}
-  </div>
+  <section class="recording-block">
+    <h3>{{ .heading }}</h3>
+    <table class="info-table recording-table">
+      <tbody>
+        {{ with .more_info }}<tr><th>More info</th><td>{{ . }}</td></tr>{{ end }}
+        {{ with .orchestra }}<tr><th>Orchestra</th><td>{{ . }}</td></tr>{{ end }}
+        {{ with .choir }}<tr><th>Choir</th><td>{{ . }}</td></tr>{{ end }}
+        {{ with .conductor }}<tr><th>Conductor</th><td>{{ . }}</td></tr>{{ end }}
+        {{ with .soloists }}<tr><th>Soloists</th><td>{{ . }}</td></tr>{{ end }}
+        {{ with .other_works }}<tr><th>Other works</th><td>{{ . }}</td></tr>{{ end }}
+        {{ with .code }}<tr><th>Code</th><td><code>{{ . }}</code></td></tr>{{ end }}
+      </tbody>
+    </table>
+  </section>
   {{ end }}
   {{ end }}
 
