@@ -1,16 +1,16 @@
 <div class="test-banner">⚠ TEST SITE — GitHub Pages proof of concept for the Stabat Mater website.</div>
 
 <div class="topbar">
-  <a href="{{ "/about/" | relURL }}">About</a>
-  <a href="{{ "/blog/" | relURL }}">Blog</a>
-  <a href="{{ "/contact/" | relURL }}">Contact</a>
+  <a href="{{ "about/" | absURL }}">About</a>
+  <a href="{{ "blog/" | absURL }}">Blog</a>
+  <a href="{{ "contact/" | absURL }}">Contact</a>
 </div>
 
 <header class="site-header">
-  <a href="{{ "/" | relURL }}" class="site-logo-link">
+  <a href="{{ "" | absURL }}" class="site-logo-link">
     <img class="site-logo" src="{{ "images/logo.png" | relURL }}" alt="The Ultimate Stabat Mater Website">
   </a>
-  <a href="{{ "/" | relURL }}" class="site-title-link">
+  <a href="{{ "" | absURL }}" class="site-title-link">
     <h1 class="site-title">The Ultimate Stabat Mater Website</h1>
     <p class="site-subtitle">a musical journey through the ages</p>
   </a>
@@ -24,7 +24,7 @@
   <ul>
     {{ range .Site.Menus.main }}
     <li>
-      <a href="{{ .URL | relURL }}"{{ if eq $.RelPermalink (.URL | relURL) }} class="active"{{ end }}>{{ .Name }}</a>
+      <a href="{{ .URL | absURL }}"{{ if eq $.RelPermalink (.URL | relURL) }} class="active"{{ end }}>{{ .Name }}</a>
     </li>
     {{ end }}
   </ul>

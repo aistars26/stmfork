@@ -10,11 +10,11 @@
   </div>
 
   <div class="sidebar-widget">
-    <h3>Recente blogposts</h3>
+    <h3>Recent blog posts</h3>
     <ul style="list-style:none; padding:0;">
       {{ range first 5 (where .Site.RegularPages "Section" "blog") }}
       <li style="margin-bottom:0.5rem; font-size:0.85rem;">
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
         <div style="font-size:0.75rem; color:#999;">{{ .Date.Format "02-01-2006" }}</div>
       </li>
       {{ end }}
@@ -24,12 +24,12 @@
   <div class="sidebar-widget">
     <h3>Sections</h3>
     <ul style="list-style:none; padding:0; font-size:0.85rem;">
-      <li><a href="{{ "/composers/" | relURL }}">Composers</a></li>
-      <li><a href="{{ "/texts/" | relURL }}">Texts</a></li>
-      <li><a href="{{ "/translations/" | relURL }}">Translations</a></li>
-      <li><a href="{{ "/blog/" | relURL }}">Blog</a></li>
-      <li><a href="{{ "/about/" | relURL }}">About</a></li>
-      <li><a href="{{ "/contact/" | relURL }}">Contact</a></li>
+      <li><a href="{{ "composers/" | absURL }}">Composers</a></li>
+      <li><a href="{{ "texts/" | absURL }}">Texts</a></li>
+      <li><a href="{{ "translations/" | absURL }}">Translations</a></li>
+      <li><a href="{{ "blog/" | absURL }}">Blog</a></li>
+      <li><a href="{{ "about/" | absURL }}">About</a></li>
+      <li><a href="{{ "contact/" | absURL }}">Contact</a></li>
     </ul>
   </div>
 
