@@ -1,0 +1,8 @@
+{{ define "main" }}
+<h1>Periods</h1>
+<ul>
+  {{ range $name, $taxonomy := .Site.Taxonomies.period }}
+  <li><a href="{{ (index $taxonomy 0).Page.RelPermalink | absURL }}">{{ (index $taxonomy 0).Page.Title }}</a> ({{ len $taxonomy }})</li>
+  {{ end }}
+</ul>
+{{ end }}
