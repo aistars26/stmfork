@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neon Vault</title>
+  <style>
+    :root {
+      --bg: #070b16;
+      --panel: rgba(8, 14, 32, 0.78);
+      --line: rgba(255,255,255,0.08);
+      --text: #eaf2ff;
+      --muted: #9cb2d8;
+      --cyan: #61f3ff;
+      --pink: #ff4fd8;
+      --gold: #ffd66b;
+      --green: #63ff9b;
+      --danger: #ff6d7a;
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(97,243,255,.10), transparent 30%),
+        radial-gradient(circle at 80% 15%, rgba(255,79,216,.12), transparent 25%),
+        linear-gradient(180deg, #0b1430 0%, var(--bg) 55%, #04060d 100%);
+      color: var(--text);
+      font-family: Inter, system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    #game {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .hud {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      padding: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .card {
+      pointer-events: auto;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 20px 60px rgba(0,0,0,.28);
+    }
+
+    .info {
+      width: min(380px, calc(100vw - 36px));
+      padding: 18px 18px 14px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 999px;
+      padding: 7px 10px;
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--cyan);
+      box-shadow: 0 0 18px var(--cyan);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      line-height: 1;
+      letter-spacing: -.03em;
+    }
+
+    p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: .95rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 14px 0 10px;
+    }
+
+    .stat {
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.07);
+      background: rgba(255,255,255,.03);
+    }
+
+    .label {
+      display: block;
+      color: var(--muted);
+      font-size: .78rem;
+      margin-bottom: 4px;
+    }
+
+    .value {
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    button {
+      appearance: none;
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      color: var(--text);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .12s ease, border-color .2s ease;
+    }
+
+    button:hover { transform: translateY(-1px); border-color: rgba(255,255,255,.25); }
+    button:active { transform: translateY(1px) scale(.99); }
+
+    .tip {
+      max-width: 260px;
+      align-self: flex-end;
+      padding: 12px 14px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .mobile {
+      position: fixed;
+      inset: auto 0 12px 0;
+      display: none;
+      justify-content: center;
+      gap: 10px;
+      pointer-events: none;
+    }
+
+    .mobile button {
+      pointer-events: auto;
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 760px) {
+      .hud { flex-direction: column; align-items: stretch; }
+      .tip { align-self: auto; max-width: none; }
+      .mobile { display: flex; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <div class="hud">
+    <section class="card info">
+      <div class="badge"><span class="dot"></span> Tiny temporary GitHub Pages game</div>
+      <h1>Neon Vault</h1>
+      <p>
+        You are a tiny thief inside a laser museum. Grab glowing shards, avoid sweeping drones,
+        and dash through the exit before the whole vault wakes up.
+      </p>
+      <div class="stats">
+        <div class="stat"><span class="label">Score</span><span class="value" id="score">0</span></div>
+        <div class="stat"><span class="label">Time</span><span class="value" id="time">45</span></div>
+        <div class="stat"><span class="label">Best</span><span class="value" id="best">0</span></div>
+      </div>
+      <p id="status">Collect 8 shards, then reach the exit gate.</p>
+      <div class="buttons">
+        <button id="restart">Restart</button>
+        <button id="chaos">Chaos mode</button>
+      </div>
+    </section>
+
+    <aside class="card tip">
+      Move with arrow keys or WASD. Press Space for a short dash. On mobile, use the buttons.
+      The lasers pulse; the drones drift; panic is part of the aesthetic.
+    </aside>
+  </div>
+
+  <div class="mobile">
+    <button data-move="left">◀</button>
+    <button data-move="up">▲</button>
+    <button data-move="down">▼</button>
+    <button data-move="right">▶</button>
+    <button data-move="dash">✦</button>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('game');
+    const ctx = canvas.getContext('2d');
+    let W = canvas.width = innerWidth * devicePixelRatio;
+    let H = canvas.height = innerHeight * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+
+    const ui = {
+      score: document.getElementById('score'),
+      time: document.getElementById('time'),
+      best: document.getElementById('best'),
+      status: document.getElementById('status')
+    };
+
+    const bestKey = 'neon-vault-best';
+    let best = +localStorage.getItem(bestKey) || 0;
+    ui.best.textContent = best;
+
+    const keys = new Set();
+    let touchMove = null;
+    addEventListener('keydown', e => {
+      if (["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"," ","w","a","s","d","W","A","S","D"].includes(e.key)) e.preventDefault();
+      keys.add(e.key.toLowerCase());
+      if (e.key === ' ') dash();
+    });
+    addEventListener('keyup', e => keys.delete(e.key.toLowerCase()));
+
+    document.querySelectorAll('.mobile button').forEach(btn => {
+      btn.addEventListener('pointerdown', () => {
+        const mv = btn.dataset.move;
+        if (mv === 'dash') dash(); else touchMove = mv;
+      });
+      btn.addEventListener('pointerup', () => touchMove = null);
+      btn.addEventListener('pointerleave', () => touchMove = null);
+    });
+
+    addEventListener('resize', () => {
+      W = canvas.width = innerWidth * devicePixelRatio;
+      H = canvas.height = innerHeight * devicePixelRatio;
+      ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+      setupArena();
+    });
+
+    const player = { x: 100, y: 100, r: 10, speed: 2.7, dash: 0, dx: 0, dy: 0, alive: true };
+    let score = 0;
+    let timeLeft = 45;
+    let lastTick = performance.now();
+    let chaosMode = false;
+    let gameOver = false;
+    let win = false;
+
+    let walls = [];
+    let lasers = [];
+    let shards = [];
+    let drones = [];
+    let exitGate = { x: 0, y: 0, w: 52, h: 52, open: false };
+
+    function rand(min, max) { return Math.random() * (max - min) + min; }
+    function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
+    function dist(a, b) { return Math.hypot(a.x - b.x, a.y - b.y); }
+
+    function setupArena() {
+      const pad = 50;
+      const arenaW = innerWidth;
+      const arenaH = innerHeight;
+
+      walls = [
+        { x: pad, y: pad, w: arenaW - pad * 2, h: 18 },
+        { x: pad, y: arenaH - pad - 18, w: arenaW - pad * 2, h: 18 },
+        { x: pad, y: pad, w: 18, h: arenaH - pad * 2 },
+        { x: arenaW - pad - 18, y: pad, w: 18, h: arenaH - pad * 2 },
+        { x: arenaW * .22, y: arenaH * .28, w: arenaW * .18, h: 18 },
+        { x: arenaW * .55, y: arenaH * .22, w: 18, h: arenaH * .26 },
+        { x: arenaW * .28, y: arenaH * .62, w: arenaW * .26, h: 18 },
+        { x: arenaW * .68, y: arenaH * .56, w: 18, h: arenaH * .18 }
+      ];
+
+      lasers = [
+        { x1: arenaW * .18, y1: arenaH * .18, x2: arenaW * .82, y2: arenaH * .18, phase: rand(0, 9), speed: 1.2 },
+        { x1: arenaW * .18, y1: arenaH * .48, x2: arenaW * .82, y2: arenaH * .48, phase: rand(0, 9), speed: 1.6 },
+        { x1: arenaW * .22, y1: arenaH * .78, x2: arenaW * .78, y2: arenaH * .78, phase: rand(0, 9), speed: 1.1 },
+        { x1: arenaW * .35, y1: arenaH * .22, x2: arenaW * .35, y2: arenaH * .75, phase: rand(0, 9), speed: 1.4 }
+      ];
+
+      drones = [
+        { x: arenaW * .24, y: arenaH * .55, r: 13, vx: 1.3, vy: -1.1, hue: 190 },
+        { x: arenaW * .72, y: arenaH * .34, r: 13, vx: -1.5, vy: 1.0, hue: 320 }
+      ];
+      if (chaosMode) drones.push({ x: arenaW * .58, y: arenaH * .72, r: 12, vx: 1.2, vy: 1.4, hue: 45 });
+
+      shards = [];
+      while (shards.length < 8) {
+        const s = { x: rand(90, arenaW - 90), y: rand(90, arenaH - 90), r: 8, got: false };
+        if (!hitsWall(s.x, s.y, 24)) shards.push(s);
+      }
+
+      exitGate = { x: arenaW - 120, y: arenaH - 120, w: 56, h: 56, open: false };
+      player.x = 100; player.y = 100; player.alive = true; player.dash = 0; player.dx = 0; player.dy = 0;
+      score = 0; timeLeft = 45; gameOver = false; win = false;
+      ui.status.textContent = 'Collect 8 shards, then reach the exit gate.';
+      ui.score.textContent = score;
+      ui.time.textContent = timeLeft;
+    }
+
+    function hitsWall(x, y, pad = player.r) {
+      return walls.some(w => x > w.x - pad && x < w.x + w.w + pad && y > w.y - pad && y < w.y + w.h + pad);
+    }
+
+    function dash() {
+      if (gameOver) return;
+      if (player.dash <= 0) player.dash = 12;
+    }
+
+    function restart() {
+      setupArena();
+    }
+
+    function movePlayer() {
+      let mx = 0, my = 0;
+      if (keys.has('arrowleft') || keys.has('a') || touchMove === 'left') mx -= 1;
+      if (keys.has('arrowright') || keys.has('d') || touchMove === 'right') mx += 1;
+      if (keys.has('arrowup') || keys.has('w') || touchMove === 'up') my -= 1;
+      if (keys.has('arrowdown') || keys.has('s') || touchMove === 'down') my += 1;
+
+      const len = Math.hypot(mx, my) || 1;
+      mx /= len; my /= len;
+      const speed = player.speed + (player.dash > 0 ? 3.9 : 0);
+      if (player.dash > 0) player.dash--;
+
+      player.dx = mx * speed;
+      player.dy = my * speed;
+
+      const nx = player.x + player.dx;
+      const ny = player.y + player.dy;
+      if (!hitsWall(nx, player.y)) player.x = clamp(nx, 0, innerWidth);
+      if (!hitsWall(player.x, ny)) player.y = clamp(ny, 0, innerHeight);
+    }
+
+    function lineHitCircle(l, c) {
+      const A = c.x - l.x1;
+      const B = c.y - l.y1;
+      const C = l.x2 - l.x1;
+      const D = l.y2 - l.y1;
+      const dot = A * C + B * D;
+      const lenSq = C * C + D * D;
+      const t = clamp(dot / lenSq, 0, 1);
+      const x = l.x1 + C * t;
+      const y = l.y1 + D * t;
+      return Math.hypot(c.x - x, c.y - y) < c.r + 3;
+    }
+
+    function update(dt) {
+      if (gameOver) return;
+      movePlayer();
+
+      timeLeft -= dt;
+      if (timeLeft <= 0) fail('Time up. The vault sealed itself.');
+      ui.time.textContent = Math.max(0, Math.ceil(timeLeft));
+
+      shards.forEach(s => {
+        if (!s.got && dist(player, s) < player.r + s.r + 2) {
+          s.got = true;
+          score++;
+          ui.score.textContent = score;
+          if (score === shards.length) {
+            exitGate.open = true;
+            ui.status.textContent = 'Exit gate open. Get out.';
+          } else {
+            ui.status.textContent = `Nice. ${shards.length - score} shards left.`;
+          }
+        }
+      });
+
+      lasers.forEach(l => {
+        l.phase += dt * l.speed * (chaosMode ? 1.7 : 1);
+        l.active = Math.sin(l.phase * 2) > -0.1;
+        if (l.active && lineHitCircle(l, player)) fail('You clipped a laser. Very stylish, very fatal.');
+      });
+
+      drones.forEach(d => {
+        d.x += d.vx * (chaosMode ? 1.4 : 1);
+        d.y += d.vy * (chaosMode ? 1.4 : 1);
+        if (hitsWall(d.x, d.y, d.r + 2)) {
+          d.x -= d.vx * 2;
+          d.y -= d.vy * 2;
+          if (Math.random() > 0.5) d.vx *= -1; else d.vy *= -1;
+        }
+        if (d.x < 40 || d.x > innerWidth - 40) d.vx *= -1;
+        if (d.y < 40 || d.y > innerHeight - 40) d.vy *= -1;
+        if (dist(player, d) < player.r + d.r + 2) fail('A patrol drone caught you. Rude.');
+      });
+
+      if (exitGate.open && player.x > exitGate.x && player.x < exitGate.x + exitGate.w && player.y > exitGate.y && player.y < exitGate.y + exitGate.h) {
+        gameOver = true;
+        win = true;
+        best = Math.max(best, Math.floor(score * 100 + timeLeft * 10 + (chaosMode ? 150 : 0)));
+        localStorage.setItem(bestKey, best);
+        ui.best.textContent = best;
+        ui.status.textContent = chaosMode ? 'You escaped in chaos mode. Honestly suspiciously impressive.' : 'Vault cleared. Clean job.';
+      }
+    }
+
+    function fail(msg) {
+      gameOver = true;
+      player.alive = false;
+      ui.status.textContent = msg;
+    }
+
+    function drawGrid() {
+      ctx.strokeStyle = 'rgba(97,243,255,.07)';
+      ctx.lineWidth = 1;
+      for (let x = 0; x < innerWidth; x += 36) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, innerHeight); ctx.stroke();
+      }
+      for (let y = 0; y < innerHeight; y += 36) {
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(innerWidth, y); ctx.stroke();
+      }
+    }
+
+    function drawWalls() {
+      walls.forEach(w => {
+        const g = ctx.createLinearGradient(w.x, w.y, w.x + w.w, w.y + w.h);
+        g.addColorStop(0, 'rgba(20, 40, 70, .95)');
+        g.addColorStop(1, 'rgba(11, 19, 34, .95)');
+        ctx.fillStyle = g;
+        ctx.strokeStyle = 'rgba(97,243,255,.18)';
+        ctx.lineWidth = 2;
+        ctx.fillRect(w.x, w.y, w.w, w.h);
+        ctx.strokeRect(w.x, w.y, w.w, w.h);
+      });
+    }
+
+    function drawLasers() {
+      lasers.forEach(l => {
+        const active = l.active;
+        ctx.lineWidth = active ? 4 : 2;
+        ctx.strokeStyle = active ? 'rgba(255,79,216,.95)' : 'rgba(255,79,216,.20)';
+        ctx.shadowColor = active ? 'rgba(255,79,216,.9)' : 'transparent';
+        ctx.shadowBlur = active ? 18 : 0;
+        ctx.beginPath();
+        ctx.moveTo(l.x1, l.y1);
+        ctx.lineTo(l.x2, l.y2);
+        ctx.stroke();
+      });
+      ctx.shadowBlur = 0;
+    }
+
+    function drawShards() {
+      shards.forEach(s => {
+        if (s.got) return;
+        const pulse = 0.8 + Math.sin(performance.now() * 0.006 + s.x) * 0.3;
+        ctx.save();
+        ctx.translate(s.x, s.y);
+        ctx.rotate(performance.now() * 0.001 + s.x);
+        ctx.fillStyle = 'rgba(255,214,107,.95)';
+        ctx.shadowColor = 'rgba(255,214,107,.95)';
+        ctx.shadowBlur = 18;
+        ctx.globalAlpha = pulse;
+        ctx.beginPath();
+        ctx.moveTo(0, -s.r - 2);
+        ctx.lineTo(s.r, 0);
+        ctx.lineTo(0, s.r + 2);
+        ctx.lineTo(-s.r, 0);
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+      });
+      ctx.globalAlpha = 1;
+      ctx.shadowBlur = 0;
+    }
+
+    function drawDrones() {
+      drones.forEach(d => {
+        ctx.fillStyle = `hsla(${d.hue}, 100%, 65%, .95)`;
+        ctx.shadowColor = `hsla(${d.hue}, 100%, 65%, .9)`;
+        ctx.shadowBlur = 20;
+        ctx.beginPath();
+        ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = 'rgba(6,9,19,.9)';
+        ctx.beginPath();
+        ctx.arc(d.x, d.y, d.r * .42, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      ctx.shadowBlur = 0;
+    }
+
+    function drawExit() {
+      ctx.fillStyle = exitGate.open ? 'rgba(99,255,155,.2)' : 'rgba(255,109,122,.14)';
+      ctx.strokeStyle = exitGate.open ? 'rgba(99,255,155,.9)' : 'rgba(255,109,122,.6)';
+      ctx.lineWidth = 3;
+      ctx.shadowColor = exitGate.open ? 'rgba(99,255,155,.8)' : 'rgba(255,109,122,.3)';
+      ctx.shadowBlur = 18;
+      ctx.fillRect(exitGate.x, exitGate.y, exitGate.w, exitGate.h);
+      ctx.strokeRect(exitGate.x, exitGate.y, exitGate.w, exitGate.h);
+      ctx.shadowBlur = 0;
+    }
+
+    function drawPlayer() {
+      ctx.fillStyle = gameOver && !win ? 'rgba(255,109,122,.9)' : 'rgba(97,243,255,.96)';
+      ctx.shadowColor = ctx.fillStyle;
+      ctx.shadowBlur = 22;
+      ctx.beginPath();
+      ctx.arc(player.x, player.y, player.r, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    }
+
+    function drawOverlay() {
+      if (!gameOver) return;
+      ctx.fillStyle = 'rgba(3, 6, 14, .55)';
+      ctx.fillRect(0, 0, innerWidth, innerHeight);
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#fff';
+      ctx.font = '700 42px Inter, sans-serif';
+      ctx.fillText(win ? 'ESCAPED' : 'BUSTED', innerWidth / 2, innerHeight / 2 - 10);
+      ctx.fillStyle = '#9cb2d8';
+      ctx.font = '500 18px Inter, sans-serif';
+      ctx.fillText('Press Restart for another run.', innerWidth / 2, innerHeight / 2 + 26);
+    }
+
+    function frame(now) {
+      const dt = Math.min(0.033, (now - lastTick) / 1000);
+      lastTick = now;
+      update(dt);
+
+      ctx.clearRect(0, 0, innerWidth, innerHeight);
+      drawGrid();
+      drawExit();
+      drawWalls();
+      drawLasers();
+      drawShards();
+      drawDrones();
+      drawPlayer();
+      drawOverlay();
+      requestAnimationFrame(frame);
+    }
+
+    document.getElementById('restart').onclick = restart;
+    document.getElementById('chaos').onclick = () => {
+      chaosMode = !chaosMode;
+      document.getElementById('chaos').textContent = chaosMode ? 'Chaos on' : 'Chaos mode';
+      restart();
+    };
+
+    setupArena();
+    requestAnimationFrame(frame);
+  </script>
+</body>
+</html>
